@@ -9,7 +9,24 @@ import SwiftUI
 
 struct UserInfoView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Sapna Fulwani")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                
+                Text("Female")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+            }
+            
+            Text("Sahasra Grand Apartments, Bangalore, Karnataka, India  Pin 3188888")
+                .font(.subheadline)
+                .lineLimit(2)
+        }
+        .foregroundStyle(.white)
+        .padding()
+        .background(Color.gray.opacity(0.5))
     }
 }
 
