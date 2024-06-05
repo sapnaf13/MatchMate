@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct UserInfoView: View {
+    let user: User
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Sapna Fulwani")
+                Text("\(user.name.first) \(user.name.last)")
                     .font(.title)
                     .fontWeight(.heavy)
                 
-                Text("Female")
-                    .font(.title3)
+                Text("\(user.gender.capitalized)")
+                    .font(.title2)
                     .fontWeight(.semibold)
             }
             
-            Text("Sahasra Grand Apartments, Bangalore, Karnataka, India  Pin 3188888")
+            Text("\(user.location.street.number) \(user.location.street.name) \(user.location.city) \(user.location.country)")
                 .font(.subheadline)
                 .lineLimit(2)
         }
@@ -30,6 +32,4 @@ struct UserInfoView: View {
     }
 }
 
-#Preview {
-    UserInfoView()
-}
+

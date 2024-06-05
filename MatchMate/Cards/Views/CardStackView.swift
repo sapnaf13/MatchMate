@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct CardStackView: View {
+    let user: User
+    
     var body: some View {
         VStack(spacing: 20) {
             ZStack {
                 ForEach(0 ..< 10) { card in
-                    CardView()
+                    CardView(user: user)
                 }
             }
             ActionButtonView()
         }
     }
-}
-
-#Preview {
-    CardStackView()
 }

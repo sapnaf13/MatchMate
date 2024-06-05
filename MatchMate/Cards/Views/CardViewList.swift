@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct CardViewList: View {
+    
+    @Binding var users: [User]
+    
     var body: some View {
-        List {
-            ForEach( 0..<5 ) { eachCard in
-                CardStackView()
-            }
+        List(users) { user in
+            CardStackView(user: user)
         }
     }
 }
 
-#Preview {
-    CardViewList()
-}
+

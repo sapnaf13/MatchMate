@@ -9,10 +9,23 @@ import SwiftUI
 
 struct CardView: View {
     
+    let user: User
+    
     var body: some View {
             ZStack(alignment: .bottom) {
-                Rectangle()
-                UserInfoView()
+                AsyncImage(url: URL(string: user.picture.large)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: cardWidth, height: cardHeight)
+                        .clipped()
+                } placeholder: {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: cardWidth, height: cardHeight)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                UserInfoView(user: user)
             }
             .frame(width: cardWidth, height: cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -29,13 +42,4 @@ private extension CardView {
     var cardHeight: CGFloat {
         UIScreen.main.bounds.height / 1.75
     }
-}
-
-
-
-
-
-
-#Preview {
-    CardView()
 }
