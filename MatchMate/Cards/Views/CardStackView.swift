@@ -7,7 +7,14 @@
 
 import SwiftUI
 
+enum ViewState {
+    case actionButtons
+    case accepted
+    case declined
+}
+
 struct CardStackView: View {
+    @State private var viewState: ViewState = .actionButtons
     let user: User
     
     var body: some View {
@@ -17,7 +24,14 @@ struct CardStackView: View {
                     CardView(user: user)
                 }
             }
-            ActionButtonView()
-        }
+            switch viewState {
+            case .actionButtons:
+                ActionButtonView(viewState: $viewState)
+            case .accepted:
+                AcceptedView()
+            case .declined:
+                DeclinedView()
+            }
+       }
     }
 }

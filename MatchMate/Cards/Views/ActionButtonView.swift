@@ -8,42 +8,39 @@
 import SwiftUI
 
 struct ActionButtonView: View {
+    @Binding var viewState: ViewState
+    
     var body: some View {
-        HStack(spacing: 32) {
-            //MARK - Decline Button
-            Button {
-            } label: {
+        ZStack {
+            // Decline Button
+            Button(action: {
+                print("Decline button tapped")
+                viewState = .declined
+            }) {
                 Image(systemName: "xmark")
-                    .fontWeight(.heavy)
-                    .foregroundStyle(.red)
-                    .background {
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 48, height: 48)
-                            .shadow(radius: 6)
-                    }
+                    .font(.system(size: 24, weight: .heavy))
+                    .foregroundColor(.red)
+                    .frame(width: 48, height: 48)
+                    .background(Circle().fill(Color.white).shadow(radius: 6))
             }
-            .frame(width: 48, height: 48)
+            .buttonStyle(PlainButtonStyle())
+            .padding(.leading, 40)
             
-            // MARK - Accept Button
-            Button {
-                
-            } label: {
+            // Accept Button
+            Button(action: {
+                print("Accept button tapped")
+                viewState = .accepted
+            }) {
                 Image(systemName: "heart.fill")
-                    .fontWeight(.heavy)
-                    .foregroundStyle(.green)
-                    .background {
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 48, height: 48)
-                            .shadow(radius: 6)
-                    }
+                    .font(.system(size: 24, weight: .heavy))
+                    .foregroundColor(.green)
+                    .frame(width: 48, height: 48)
+                    .background(Circle().fill(Color.white).shadow(radius: 6))
             }
-            .frame(width: 48, height: 48)
+            .buttonStyle(PlainButtonStyle())
+            .padding(.trailing, 40)
         }
+        .padding(.horizontal, 20)
     }
 }
-
-#Preview {
-    ActionButtonView()
-}
+        
