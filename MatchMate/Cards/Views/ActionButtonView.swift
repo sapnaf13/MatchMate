@@ -19,7 +19,7 @@ struct ActionButtonView: View {
             }) {
                 Image(systemName: "xmark")
                     .font(.system(size: 24, weight: .heavy))
-                    .foregroundColor(.red)
+                    .foregroundColor(.blue)
                     .frame(width: 48, height: 48)
                     .background(Circle().fill(Color.white).shadow(radius: 6))
             }
@@ -31,9 +31,9 @@ struct ActionButtonView: View {
                 print("Accept button tapped")
                 viewState = .accepted
             }) {
-                Image(systemName: "heart.fill")
+                Image(systemName: "checkmark")
                     .font(.system(size: 24, weight: .heavy))
-                    .foregroundColor(.green)
+                    .foregroundColor(.blue)
                     .frame(width: 48, height: 48)
                     .background(Circle().fill(Color.white).shadow(radius: 6))
             }

@@ -26,9 +26,9 @@ struct UserInfoView: View {
                 .font(.subheadline)
                 .lineLimit(2)
         }
-        .foregroundStyle(.white)
+        .foregroundStyle(.blue)
         .padding()
-        .background(Color.gray.opacity(0.5))
+        .background(Color.white.opacity(0.7))
     }
 }
 
