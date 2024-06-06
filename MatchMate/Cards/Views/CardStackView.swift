@@ -19,11 +19,7 @@ struct CardStackView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            ZStack {
-                ForEach(0 ..< 10) { card in
-                    CardView(user: user)
-                }
-            }
+            CardView(user: user)
             switch viewState {
             case .actionButtons:
                 ActionButtonView(viewState: $viewState)
